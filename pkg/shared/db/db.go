@@ -18,8 +18,13 @@ func Init(c *config.Config) *gorm.DB {
 		log.Fatalln(err)
 	}
 	db.Exec("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\"")
-
-	db.AutoMigrate(&models.Account{})
+	db.Exec(`DO $$
+		BEGIN
+			IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'operation_type') THEN
+				CREATE TYPE operation_type AS ENUM ('asset', 'liability');
+			END IF;
+		END $$;`)
+	db.AutoMigrate(&models.Account{}, &models.Operation{}, &models.Transaction{})
 
 	return db
 }

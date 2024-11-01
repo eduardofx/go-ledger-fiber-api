@@ -2,6 +2,7 @@ package main
 
 import (
 	"go-api/pkg/domain/accounts"
+	"go-api/pkg/domain/operations"
 	"go-api/pkg/shared/config"
 	"go-api/pkg/shared/db"
 	"log"
@@ -20,6 +21,7 @@ func main() {
 	app := fiber.New()
 
 	accounts.RegisterRoutes(app, h)
+	operations.RegisterRoutes(app, h)
 
 	app.Listen(c.Port)
 }
