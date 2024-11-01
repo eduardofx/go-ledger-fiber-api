@@ -3,6 +3,7 @@ package main
 import (
 	"go-api/pkg/domain/accounts"
 	"go-api/pkg/domain/operations"
+	"go-api/pkg/domain/transactions"
 	"go-api/pkg/shared/config"
 	"go-api/pkg/shared/db"
 	"log"
@@ -22,6 +23,7 @@ func main() {
 
 	accounts.RegisterRoutes(app, h)
 	operations.RegisterRoutes(app, h)
+	transactions.RegisterRoutes(app, h)
 
 	app.Listen(c.Port)
 }

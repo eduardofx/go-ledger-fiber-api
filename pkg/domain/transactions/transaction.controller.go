@@ -1,4 +1,4 @@
-package operations
+package transactions
 
 import (
 	"github.com/gofiber/fiber/v2"
@@ -12,8 +12,7 @@ type handler struct {
 func RegisterRoutes(app *fiber.App, db *gorm.DB) {
 	h := &handler{DB: db}
 
-	routes := app.Group("/operations")
-	routes.Get("/", h.GetOperationAll)
-	routes.Post("/", h.CreateOperation)
-	routes.Delete("/:id", h.DeleteOperation)
+	routes := app.Group("/transactions")
+	routes.Get("/:id", h.GetTransactionById)
+	routes.Post("/", h.CreateTransaction)
 }

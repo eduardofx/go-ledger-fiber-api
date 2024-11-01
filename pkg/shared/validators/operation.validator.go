@@ -1,6 +1,11 @@
 package validators
 
-import "go-api/pkg/shared/models"
+import (
+	"fmt"
+	"go-api/pkg/shared/models"
+	"math"
+	"strconv"
+)
 
 func ValidateOperationType(value string) bool {
 
@@ -8,4 +13,12 @@ func ValidateOperationType(value string) bool {
 		return false
 	}
 	return true
+}
+
+func TransformValueDecimal(balance float64) (float64, error) {
+	return strconv.ParseFloat(fmt.Sprintf("%.2f", balance), 64)
+}
+
+func RoundToTwoDecimals(value float64) float64 {
+	return math.Floor(value*100+0.000001) / 100
 }

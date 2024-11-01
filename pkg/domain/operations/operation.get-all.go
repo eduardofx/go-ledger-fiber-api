@@ -8,9 +8,9 @@ import (
 
 func (h handler) GetOperationAll(c *fiber.Ctx) error {
 
-	var operation models.Operation
+	var operation []models.Operation
 
-	if result := h.DB.First(&operation); result.Error != nil {
+	if result := h.DB.Find(&operation); result.Error != nil {
 		return fiber.NewError(fiber.StatusNotFound, result.Error.Error())
 	}
 

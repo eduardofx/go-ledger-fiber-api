@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	"gorm.io/gorm"
 )
 
 type Account struct {
@@ -11,4 +12,5 @@ type Account struct {
 	Document  string    `json:"document"`
 	Balance   float64   `json:"balance"`
 	CreatedAt time.Time
+	DeletedAt *gorm.DeletedAt `gorm:"index"`
 }
