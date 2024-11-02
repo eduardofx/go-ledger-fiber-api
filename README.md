@@ -39,9 +39,11 @@ If any dependency is missing.
 
     go mod tidy
 
-## Insomnia File
+## Docs
 
-[docs/Insomnia_ledger_go.yaml](docs/Insomnia_ledger_go.yaml)
+- [Insomnia](docs/Insomnia_ledger_go.yaml)
+
+- [Swagger](docs/swagger.yaml)
 
 <br />
 
