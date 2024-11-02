@@ -1,0 +1,275 @@
+_type: export
+__export_format: 4
+__export_date: 2024-11-02T11:36:00.140Z
+__export_source: insomnia.desktop.app:v10.1.1
+resources:
+  - _id: req_1f175f4b5f3f47d292ab5d258a8ee839
+    parentId: fld_b1259c08f51d419e836275019c19441a
+    modified: 1730546500110
+    created: 1730286889665
+    url: http://localhost:3000/accounts
+    name: Account
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"document": "26273128049"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1730545467936
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_b1259c08f51d419e836275019c19441a
+    parentId: wrk_604abd4ee57f448e9375e5b0e4fa34ee
+    modified: 1730545445053
+    created: 1730545420379
+    name: Account
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1730545441910
+    _type: request_group
+  - _id: wrk_604abd4ee57f448e9375e5b0e4fa34ee
+    parentId: null
+    modified: 1730250258896
+    created: 1730250258896
+    name: Pismo
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_c3f3b6cdfe394e51a0222b536d0ff3d6
+    parentId: fld_b1259c08f51d419e836275019c19441a
+    modified: 1730546582033
+    created: 1730314452756
+    url: http://localhost:3000/accounts/11
+    name: Account Get Document
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"document": "52085836070"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1730545467886
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8099ca1366eb4d599f5e18b6c5a9b2ad
+    parentId: fld_b1259c08f51d419e836275019c19441a
+    modified: 1730546583326
+    created: 1730314579220
+    url: http://localhost:3000/accounts/
+    name: Account Get All
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1730545467861
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_4df0b6bfa3274982923f4c8e5ed174c7
+    parentId: fld_b1259c08f51d419e836275019c19441a
+    modified: 1730546502800
+    created: 1730469562739
+    url: http://localhost:3000/accounts/12686d6b-6df2-45b6-a450-c9517018ce52
+    name: Account Delete
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1730545467836
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_76728107f1734a6da099745b447f969a
+    parentId: wrk_604abd4ee57f448e9375e5b0e4fa34ee
+    modified: 1730546498986
+    created: 1730420353840
+    url: http://localhost:3000/operations
+    name: Operation
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "normal",
+        	"type": "liability"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1729519031671.6094
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e2c9472340894f5c8afaff24b55abb7d
+    parentId: wrk_604abd4ee57f448e9375e5b0e4fa34ee
+    modified: 1730546497542
+    created: 1730420435889
+    url: http://localhost:3000/operations
+    name: Get Operations
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1728492631312.2188
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_39a37a274b17428285b78bacbb7794e8
+    parentId: wrk_604abd4ee57f448e9375e5b0e4fa34ee
+    modified: 1730546496375
+    created: 1730470580490
+    url: http://localhost:3000/operations/338ae3ab-ccca-48ce-b420-ea8c70a3f013
+    name: Operation Delete
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1727466230952.8281
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_56b918bfbc27458bad4b4c10731c45c5
+    parentId: fld_290a4c4875a9429b9e5ceff70f9c07a2
+    modified: 1730546493377
+    created: 1730479559642
+    url: http://localhost:3000/transactions
+    name: Transactions
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"amount": 0.133,
+        	"idempotency_key": "1ds2das",
+        	"account_id": "12686d6b-6df2-45b6-a450-c9517018ce52",
+        	"operation_id": "d6ae2972-ff10-48f3-a3df-d50e00880230"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1730545498783
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_290a4c4875a9429b9e5ceff70f9c07a2
+    parentId: wrk_604abd4ee57f448e9375e5b0e4fa34ee
+    modified: 1730545462719
+    created: 1730545441810
+    name: Transaction
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1726439830593.4375
+    _type: request_group
+  - _id: env_eaa49eeb8c523d31654937a3800e78fd72cd2d5e
+    parentId: wrk_604abd4ee57f448e9375e5b0e4fa34ee
+    modified: 1730250258898
+    created: 1730250258898
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1730250258898
+    _type: environment
+  - _id: jar_eaa49eeb8c523d31654937a3800e78fd72cd2d5e
+    parentId: wrk_604abd4ee57f448e9375e5b0e4fa34ee
+    modified: 1730250258899
+    created: 1730250258899
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar

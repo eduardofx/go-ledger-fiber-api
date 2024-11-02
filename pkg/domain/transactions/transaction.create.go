@@ -45,7 +45,7 @@ func (h handler) CreateTransaction(c *fiber.Ctx) error {
 
 	if operation.Type == models.Liability {
 		if validators.RoundToTwoDecimals(account.Balance) < body.Amount {
-			return fiber.NewError(fiber.StatusNotFound, `{"message": "Insufficient balance"}`)
+			return fiber.NewError(fiber.StatusBadRequest, `{"message": "Insufficient balance"}`)
 		}
 
 		balance := account.Balance - body.Amount
