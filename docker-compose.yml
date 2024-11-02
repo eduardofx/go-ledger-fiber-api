@@ -18,6 +18,17 @@ services:
       timeout: 5s
       retries: 5
 
+  postgres_test:
+    container_name: postgres_test
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: test
+    ports:
+      - "5434:5432"
+    volumes:
+      - dbdata_test:/var/lib/postgresql/data
   go:
     container_name: go
     build:
@@ -30,3 +41,4 @@ services:
 
 volumes:
   dbdata:
+  dbdata_test:

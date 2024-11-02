@@ -18,6 +18,13 @@
         "DeletedAt": null
     }
 
+#### Return 400 - Document already exists
+
+    {
+        "message": "The document already exists",
+        "document": "26273128049"
+    }
+
 #### Return 400 - Invalid document
 
     {

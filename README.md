@@ -35,6 +35,21 @@ Create and start a application and postgres instance with docker:
 
     docker-compose up -d
 
+If any dependency is missing.
+
+    go mod tidy
+
 <br />
 
 ## Testing
+
+#### unit
+
+    cd pkg/shared/test
+    go run test -v
+
+#### Integration
+
+    docker-compose up -d
+    cd pkg/shared/test/integration
+    go run test -v
