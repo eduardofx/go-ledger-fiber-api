@@ -1,6 +1,6 @@
 # Operations
 
-### [POST][/operations] - Create an Operation
+### [POST][/operations] - Create an operation
 
 #### Request Body  (Type: [asset,liability])
 
@@ -25,7 +25,7 @@
         "message": "This operation does not exist, choose 'asset' or 'liability"
     }
 
-### [GET][/operations] - Get All Operation
+### [GET][/operations] - Get All operations
 
 #### Return 200
 
@@ -46,7 +46,7 @@
         }
     ]
 
-### [DELETE][/operations/:id] - Delete an Operation
+### [DELETE][/operations/:id] - Delete an operation
 
 #### Return 200
 

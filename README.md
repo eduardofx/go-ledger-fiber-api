@@ -2,16 +2,16 @@
 
 This application offers the following endpoints:
 
-### [Account](docs/account)
+### [Account](docs/account.md)
 
 | Path | Method | Description |
 |------|--------|-------------|
 | /accounts | GET | Return all accounts |
-| /accounts/:document | GET | Get By a document number |
-| /accounts | POST | Create an Account |
-| /accounts | DELETE | Delete Account softdelete |
+| /accounts/:document | GET | Get account by a document number |
+| /accounts | POST | Create an account |
+| /accounts | DELETE | Delete account softdelete |
 
-### [Operations](docs/operations)
+### [Operations](docs/operations.md)
 
 | Path | Method | Description |
 |------|--------|-------------|
@@ -19,11 +19,11 @@ This application offers the following endpoints:
 | /operations | POST | Create an operations |
 | /operations | DELETE | Delete an operations softdelete |
 
-### [Transactions](docs/transactions)
+### [Transactions](docs/transactions.md)
 
 | Path | Method | Description |
 |------|--------|-------------|
-| /transactions | POST | Create an operations |
+| /transactions | POST | Create a transaction |
 
 <br />
 

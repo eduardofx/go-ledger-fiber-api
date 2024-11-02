@@ -1,6 +1,6 @@
 # Accounts
 
-### [POST][/accounts] - Create Account
+### [POST][/accounts] - Create account
 
 #### Request Body
 
@@ -24,7 +24,7 @@
         "message": "Invalid document: 111"
     }
 
-### [DELETE][/accounts/:id] - Delete Account
+### [DELETE][/accounts/:id] - Delete account
 
 #### Return 200
 
@@ -39,7 +39,7 @@
         record not found
     }
 
-### [GET][/accounts] - Return all Accounts
+### [GET][/accounts] - Return all accounts
 
 #### Return 200
 
