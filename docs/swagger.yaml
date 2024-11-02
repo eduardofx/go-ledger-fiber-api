@@ -1,0 +1,180 @@
+openapi: 3.0.0
+info:
+  title: Backend Ledger Go
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: Account
+  - name: Transaction
+paths:
+  /accounts:
+    post:
+      tags:
+        - Account
+      summary: Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                document: '20754152006'
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: User-Agent
+          in: header
+          schema:
+            type: string
+          example: insomnia/10.1.1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /accounts/{AccountId}:
+    get:
+      tags:
+        - Account
+      summary: Account Get Document
+      parameters:
+        - name: AccountId
+          in: path
+          description: ID of pet to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /accounts/:
+    get:
+      tags:
+        - Account
+      summary: Account Get All
+      parameters:
+        - name: User-Agent
+          in: header
+          schema:
+            type: string
+          example: insomnia/10.1.1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /accounts/{AccountDeleteId}:
+    delete:
+      tags:
+        - Account
+      summary: Account Delete
+      parameters:
+        - name: AccountDeleteId
+          in: path
+          description: ID of pet to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /transactions:
+    post:
+      tags:
+        - Transaction
+      summary: Transactions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: 0.01
+                idempotency_key: 38b19660-2028-a4d15-8887-da8bbd2213a5
+                account_id: 4af73890-48c4-43a8-bbbf-5d25b9069caa
+                operation_id: 38b19660-2028-4d15-8887-da8bbd2213a5
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: User-Agent
+          in: header
+          schema:
+            type: string
+          example: insomnia/10.1.1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /operations:
+    post:
+      tags:
+        - default
+      summary: Operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: prurchase
+                type: asset
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: User-Agent
+          in: header
+          schema:
+            type: string
+          example: insomnia/10.1.1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - default
+      summary: Get Operations
+      parameters:
+        - name: User-Agent
+          in: header
+          schema:
+            type: string
+          example: insomnia/10.1.1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /operations/{OperationDeleteId}:
+    delete:
+      tags:
+        - default
+      summary: Operation Delete
+      parameters:
+        - name: OperationDeleteId
+          in: path
+          description: ID of pet to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
