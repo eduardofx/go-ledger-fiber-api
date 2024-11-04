@@ -33,24 +33,39 @@ func (h handler) CreateTransaction(c *fiber.Ctx) error {
 
 	body.Amount = validators.RoundToTwoDecimals(body.Amount)
 
+	tx := h.DB.Begin()
+	defer func() {
+		if r := recover(); r != nil {
+			tx.Rollback()
+		}
+	}()
+
 	var account models.Account
-	if err := h.DB.First(&account, "id = ?", body.AccountId).Error; err != nil {
-		return fiber.NewError(fiber.StatusNotFound, `{"message": "Account not found"}`)
+	result := tx.Raw("SELECT * FROM accounts WHERE id = ? FOR UPDATE", body.AccountId).Scan(&account)
+	if result.Error != nil {
+		tx.Rollback()
+		if result.RowsAffected == 0 {
+			return fiber.NewError(fiber.StatusNotFound, `{"message": "Account not found"}`)
+		}
+		return fiber.NewError(fiber.StatusInternalServerError, result.Error.Error())
 	}
 
 	var operation models.Operation
-	if err := h.DB.First(&operation, "id = ?", body.OperationId).Error; err != nil {
+	if err := tx.First(&operation, "id = ?", body.OperationId).Error; err != nil {
+		tx.Rollback()
 		return fiber.NewError(fiber.StatusNotFound, `{"message": "Operation not found"}`)
 	}
 
 	if operation.Type == models.Liability {
 		if validators.RoundToTwoDecimals(account.Balance) < body.Amount {
+			tx.Rollback()
 			return fiber.NewError(fiber.StatusBadRequest, `{"message": "Insufficient balance"}`)
 		}
 
 		balance := account.Balance - body.Amount
 
-		if err := h.DB.Model(&account).Where("id = ?", account.Id).Update("balance", balance).Error; err != nil {
+		if err := tx.Model(&account).Where("id = ?", account.Id).Update("balance", balance).Error; err != nil {
+			tx.Rollback()
 			return fiber.NewError(fiber.StatusBadRequest, err.Error())
 		}
 
@@ -60,7 +75,8 @@ func (h handler) CreateTransaction(c *fiber.Ctx) error {
 	if operation.Type == models.Asset {
 		balance := account.Balance + body.Amount
 
-		if err := h.DB.Model(&account).Where("id = ?", account.Id).Update("balance", balance).Error; err != nil {
+		if err := tx.Model(&account).Where("id = ?", account.Id).Update("balance", balance).Error; err != nil {
+			tx.Rollback()
 			return fiber.NewError(fiber.StatusBadRequest, err.Error())
 		}
 	}
@@ -73,8 +89,14 @@ func (h handler) CreateTransaction(c *fiber.Ctx) error {
 	}
 
 	if result := h.DB.Create(&transaction); result.Error != nil {
+		tx.Rollback()
 		return fiber.NewError(fiber.StatusBadRequest, result.Error.Error())
 	}
+
+	if err := tx.Commit().Error; err != nil {
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
+	}
+
 	return c.Status(fiber.StatusCreated).JSON(&transaction)
 
 }
