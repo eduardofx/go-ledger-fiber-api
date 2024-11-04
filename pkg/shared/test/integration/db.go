@@ -7,7 +7,7 @@ import (
 )
 
 func setupDatabase() (*gorm.DB, error) {
-	dsn := "host=localhost user=postgres password=postgres dbname=ledger_api port=5434 sslmode=disable"
+	dsn := "host=localhost user=postgres password=postgres dbname=test port=5434 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Silent),
 	})
